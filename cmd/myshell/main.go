@@ -31,6 +31,15 @@ func main() {
 			}
 			to_print := val[0][5:]
 			fmt.Println(to_print)
+		}else if len(val[0])>=4 && val[0][0:4] == "type"{
+			if len(val[0]) >=5 && val[0][4]==' '{
+				cmd := val[0][5:]
+				if cmd == "echo" || cmd == "exit" || cmd == "type"{
+					fmt.Printf("%s is a shell builtin\n", cmd)
+				}else{
+					fmt.Println(cmd+" not found")
+				}
+			}
 		} else {
 			fmt.Printf("%s: command not found\n", val[0])
 		}
