@@ -18,6 +18,9 @@ func main() {
 		fmt.Fprint(os.Stdout, "$ ")
 		s, err := bufio.NewReader(os.Stdin).ReadString('\n')
 		val := strings.Split(s, "\n")
+		if strings.EqualFold(val[0], "exit 0") {
+			break;
+		}
 		if err == nil {
 			fmt.Printf("%s: command not found\n", val[0])
 		} else {
